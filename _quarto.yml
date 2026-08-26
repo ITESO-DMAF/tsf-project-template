@@ -1,0 +1,36 @@
+# Configuración compartida — repos de proyecto de la clase Series de tiempo
+# Coloca este archivo en la raíz del repo del equipo.
+#
+# Nota: NO declara `project: type:`, así que Quarto no convierte esta
+# carpeta en un sitio/proyecto de navegación (nav bar, sidebar, etc.).
+# Solo aplica estas opciones por default a cualquier .qmd que rindan aquí.
+
+engine: knitr  # fija R/knitr como motor
+
+format:
+  html:
+    embed-resources: true   # un solo .html autocontenido: nada de carpetas
+                             # *_files/ sueltas ni dependencias externas;
+                             # fácil de compartir o subir a Canvas
+    toc: true
+    toc-depth: 2
+
+knitr:
+  opts_chunk:
+    paged.print: false      # evita que las mables/fables/hilo se rendericen
+                             # mal en tablas HTML (mismo fix documentado en
+                             # narsil, pero aplicado global en vez de por-chunk
+                             # para que no tengan que acordarse en cada equipo)
+
+# --- Solo para el repo de la presentación final (revealjs) ---
+# Reemplacen el bloque `format:` de arriba por este, en el repo donde
+# armen las slides de la presentación final:
+#
+# format:
+#   html:
+#     embed-resources: true
+#     toc: true
+#     toc-depth: 2
+#   revealjs:
+#     output-file: presentacion.html
+#     slide-number: true
