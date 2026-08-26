@@ -1,4 +1,4 @@
-# Configuración compartida — repos de proyecto de la clase Series de tiempo
+# Configuración compartida — repos de proyecto de la clase de Series de tiempo
 # Coloca este archivo en la raíz del repo del equipo.
 #
 # Nota: NO declara `project: type:`, así que Quarto no convierte esta
@@ -8,29 +8,25 @@
 engine: knitr  # fija R/knitr como motor
 
 format:
-  html:
-    embed-resources: true   # un solo .html autocontenido: nada de carpetas
-                             # *_files/ sueltas ni dependencias externas;
-                             # fácil de compartir o subir a Canvas
-    toc: true
-    toc-depth: 2
+  revealjs:
+    embed-resources: true   # una sola presentación autocontenida: fácil
+                             # de compartir o subir a Canvas
+    theme: default           # temas disponibles: https://quarto.org/docs/presentations/revealjs/themes.html
+    slide-number: true
+    scrollable: true
+    transition: slide
+    preview-links: true
+    table:
+      striped: true
+      hover: true
+      responsive: true
+    html-math-method: katex  # para ecuaciones (ARIMA, suavizamiento, etc.)
+
+code-overflow: wrap   # evita scroll horizontal en pipes largos
+lightbox: true         # clic para hacer zoom en las figuras
+code-link: true        # enlaza nombres de función (ETS(), ARIMA(), etc.) a su documentación
 
 knitr:
   opts_chunk:
-    paged.print: false      # evita que las mables/fables/hilo se rendericen
-                             # mal en tablas HTML (mismo fix documentado en
-                             # narsil, pero aplicado global en vez de por-chunk
-                             # para que no tengan que acordarse en cada equipo)
-
-# --- Solo para el repo de la presentación final (revealjs) ---
-# Reemplacen el bloque `format:` de arriba por este, en el repo donde
-# armen las slides de la presentación final:
-#
-# format:
-#   html:
-#     embed-resources: true
-#     toc: true
-#     toc-depth: 2
-#   revealjs:
-#     output-file: presentacion.html
-#     slide-number: true
+    paged.print: false      # necesario para que las mables/fables/hilo
+                             # se rendericen correctamente en tablas HTML
